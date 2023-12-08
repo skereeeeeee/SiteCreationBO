@@ -6,6 +6,9 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { AuthGuardService } from './services/auth-guard.service';
+import { AuthServiceService } from './services/auth-service.service';
+import { JwtHelperService } from '@auth0/angular-jwt';
 
 @NgModule({
   declarations: [
@@ -18,7 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     AppRoutingModule,
     NgbModule
   ],
-  providers: [],
+  providers: [AuthGuardService, AuthServiceService, JwtHelperService ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
