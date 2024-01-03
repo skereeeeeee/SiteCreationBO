@@ -9,6 +9,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthServiceService } from './services/auth-service.service';
 import { JwtHelperService } from '@auth0/angular-jwt';
+import { FormsModule } from '@angular/forms';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import { JwtHelperService } from '@auth0/angular-jwt';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    NgbModule
+    NgbModule,
+    FormsModule,
+    FontAwesomeModule
   ],
   providers: [AuthGuardService, AuthServiceService, JwtHelperService ],
   bootstrap: [AppComponent]

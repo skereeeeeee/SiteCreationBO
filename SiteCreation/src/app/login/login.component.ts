@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthServiceService } from '../services/auth-service.service';
+import { LoginUser } from '../model/user.model';
 
 @Component({
   selector: 'app-login',
@@ -9,6 +10,8 @@ import { AuthServiceService } from '../services/auth-service.service';
 })
 export class LoginComponent implements OnInit {
 
+   public user: LoginUser = new LoginUser();
+
   constructor(private auth: AuthServiceService) { }
 
   ngOnInit(): void {
@@ -16,6 +19,10 @@ export class LoginComponent implements OnInit {
     {
       window.location.href = '/Home';
     }
+  }
+
+  Login(){
+    this.auth.login(this.user);
   }
 
 }
