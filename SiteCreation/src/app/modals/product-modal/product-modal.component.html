@@ -1,0 +1,95 @@
+<div class="modal-header">
+  <h4 class="modal-title">{{sezione}}</h4>
+  <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
+</div>
+<div class="modal-body">
+  <div class="row">
+    <div class="form-group">
+      <label for="exampleInputEmail1">Marchio</label>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="marchioSelected">
+        <option selected value="-1">Seleziona marchio</option>
+        <option *ngFor="let marchio of this.marchi" [value]="marchio.idMarchio">{{marchio.nomeMarchio |
+          uppercase}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Nome</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        [(ngModel)]="prodotti.nome">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Descrizione</label>
+      <input type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        [(ngModel)]="prodotti.descrizione">
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Materiale</label>
+      <select class="form-select" aria-label="Default select example" [(ngModel)] ="materialeSelected">
+        <option selected value="-1">Seleziona materiale</option>
+        <option *ngFor="let materiale of this.materiali" [value]="materiale.iD_MATERIALE">{{materiale.nomE_MATERIALE | uppercase}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Colore</label>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="coloreSelected">
+        <option selected value="-1">Seleziona colore</option>
+        <option *ngFor="let colore of this.colori" [value]="colore.iD_COLORE">{{colore.nomE_COLORE |
+          uppercase}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Tipo</label>
+      <select class="form-select" aria-label="Default select example" [(ngModel)]="tipoSelected">
+        <option selected value="-1">Seleziona tipo</option>
+        <option *ngFor="let tipo of this.tipi" [value]="tipo.iD_TIPO">{{tipo.tipo |
+          uppercase}}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="exampleInputEmail1">Prezzo</label>
+      <input type="number" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+        [(ngModel)]="prodotti.prezzo">
+    </div>
+    <div class="col-12 pt-2">
+      <b>Immagine principale</b>
+      <br>
+      <input class="pl-2" type="file" name="image" (change)="onFirstImageChange($event)">
+      <br>
+      <img *ngIf="this.prodotti.immagineB64 != ''" [src]="this.prodotti.immagineB64" height="200" width="200">
+      <!-- Mostra l'anteprima dell'immagine -->
+    </div>
+
+    <div class="col-12 pt-2">
+      <b>Foto</b>
+      <br>
+      <input class="pl-2" type="file" name="image" multiple (change)="onFileChange($event)">
+      <br>
+      <div *ngFor="let image of images; let i = index" class="image-container mt-3">
+        <div class="ms-1 me-1">
+          <img [src]="image" height="200" width="200"> <!-- Mostra l'anteprima dell'immagine -->
+
+          <div class="image-overlay ">
+            <div class="btn-group-vertical h-50 w-50">
+              <button class="btn btn-success" (click)="moveUp(i)" *ngIf="i != 0"><fa-icon
+                  [icon]="faTop"></fa-icon></button> <!-- Bottone per spostare l'immagine su -->
+              <button class="btn btn-danger" (click)="removeImage(i)"><fa-icon [icon]="remove"></fa-icon></button>
+              <!-- Bottone per rimuovere l'immagine -->
+              <button class="btn btn-success" (click)="moveDown(i)" *ngIf="i != images.length - 1"><fa-icon
+                  [icon]="faDown"></fa-icon></button> <!-- Bottone per spostare l'immagine giù -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+
+
+  </div>
+</div>
+<div class="modal-footer">
+
+  <button type="button" class="btn btn-success" (click)="send()">Conferma</button>
+  <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">chiudi</button>
+</div>

@@ -10,7 +10,7 @@ export class AuthServiceService {
   constructor() {
     if(this.isAuthenticated() && this.user.username =='' ){
       //TODO cambiare con local storage
-      this.login({username: 'admin', password: 'admin'} as LoginUser);
+      this.login({email: 'admin', password: 'admin'} as LoginUser);
       
     }
       
@@ -18,14 +18,13 @@ export class AuthServiceService {
 
   public isAuthenticated(): boolean {
     const token = localStorage.getItem('token');
-    //return !this.jwtHelper.isTokenExpired(token);
-    return true
+    return token != undefined
   }
 
   public login(loginUser: LoginUser){
 
     this.user = {
-      username: loginUser.username,
+      username: loginUser.email,
       azienda : '',	
       nome : '',
       cognome : '',

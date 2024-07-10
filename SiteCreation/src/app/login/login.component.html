@@ -1,16 +1,27 @@
-<form action="">
-    <div class="form-group">
-        <label for="exampleInputEmail1">Email</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email" [(ngModel)]=' user.username'    >
+<!-- login.component.html -->
+<div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+  <div class="container">
+    <div class="row justify-content-center ">
+      <div class="col-md-4 card p-4">
+        <h1 class="text-center">Login</h1>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="username">Email</label>
+            <input type="text" id="username" class="form-control" formControlName="username" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" class="form-control" formControlName="password" required>
+          </div>
+          <a class=" mt-2">Password Dimenticata?</a>
+          <br>	
+          <button type="submit" class="btn btn-primary mt-2" [disabled]="!loginForm!.valid">Login</button>
+
+
+
+        </form>
       </div>
-      <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password"[(ngModel)]=' user.password'>
-      </div>
-      <a href="javascript:0">password dimenticata</a>
-      <div class="form-group form-check">
-        <input type="checkbox" class="form-check-input" id="exampleCheck1">
-        <label class="form-check-label" for="exampleCheck1">Ricordami</label>
-      </div>
-      <button type="submit" class="btn btn-primary" (click)="Login()">Login</button>
-</form>
+    </div>
+  </div>
+</div>
+

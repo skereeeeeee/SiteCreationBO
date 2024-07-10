@@ -1,0 +1,4 @@
+ loginUri: {
+
+    login: "/Authenticate/Login"
+}

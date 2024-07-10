@@ -1,0 +1,12 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{sezione}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
+</div>
+<div class="modal-body">
+    <!-- <ckeditor [editor]="Editor" [(ngModel)]="testo"></ckeditor> -->
+</div>
+<div class="modal-footer">
+
+    <button type="button" class="btn btn-success" (click)="send()">Conferma</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close()">chiudi</button>
+</div>

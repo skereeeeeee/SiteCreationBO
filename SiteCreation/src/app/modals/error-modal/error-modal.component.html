@@ -1,0 +1,15 @@
+
+	<div class="modal-header text-center">
+		<h4 class="modal-title" id="modal-basic-title">Errore</h4>
+		<button type="button" class="btn-close" aria-label="Close" (click)="modal.dismiss('Cross click')"></button>
+	</div>
+	<div class="modal-body text-center">
+			<div class="mb-3">
+                <span>
+                    {{message}}
+                </span>
+			</div>
+	</div>
+	<div class="modal-footer text-center">
+		<button type="button" class="btn btn-danger" (click)="modal.close()">Chiudi</button>
+	</div>

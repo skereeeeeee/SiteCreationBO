@@ -10,21 +10,9 @@ import { faGear } from '@fortawesome/free-solid-svg-icons';
 })
 export class HomepageComponent implements OnInit {
 
-  //icone
-  faGear = faGear
-
-  user: User|undefined = undefined
-
   constructor(public auth: AuthServiceService) { }
 
   ngOnInit(): void {
-
-    
-
-    if(this.user === undefined)
-    {
-      this.user = this.auth.user;
-    }
   }
 
 }
