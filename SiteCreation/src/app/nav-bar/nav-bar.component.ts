@@ -14,40 +14,39 @@ export class NavBarComponent implements OnInit {
   //icone
   faGear = faGear
 
-  user: User|undefined = undefined
+  user: User | undefined = undefined
 
   constructor(public auth: AuthServiceService, private router: Router) { }
 
   ngOnInit(): void {
-    if(this.user === undefined)
-    {
+    if (this.user === undefined) {
       this.user = this.auth.user;
     }
   }
 
-  navigate(value:number){
+  navigate(value: number) {
     switch (value) {
       case 1:
-        this.router.navigate(['Prodotti']);
-        break;
+        this.router.navigate(['ChiSiamo'])
+        break
       case 2:
-        this.router.navigate(['Marchi']);
-        break;
+        this.router.navigate(['INostriMarchi'])
+        break
       case 3:
-        this.router.navigate(['Materiali']);
-        break;
+        this.router.navigate(['INostriLavori'])
+        break
       case 4:
-        this.router.navigate(['Colori']);
-        break;
+        this.router.navigate(['DoveTrovarci'])
+        break
       case 5:
-        this.router.navigate(['Tipi']);
-        break;
+        this.router.navigate(['Prodotti'])
+        break
       case 6:
-        this.router.navigate(['NewsLetter']);
-        break;
-      case 7:
-        this.router.navigate(['CodiciSconto']);
-        break;
+        this.router.navigate(['NewsLetter'])
+        break
+      case 6:
+        this.router.navigate(['CodiciSconto'])
+        break
     }
   }
 

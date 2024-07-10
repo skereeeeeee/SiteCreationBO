@@ -23,7 +23,7 @@ export class ProdottiComponent implements OnInit {
   aggiungiProdotto() {
     var modal = this.modal.open(ProductModalComponent, { size: 'lg' })
     modal.componentInstance.sezione = 'Aggiungi prodotto'
-    modal.result.then(x=>{
+    modal.result.then(x => {
       this.getProdotti();
     })
   }
@@ -34,26 +34,26 @@ export class ProdottiComponent implements OnInit {
     modal.componentInstance.sezione = 'Aggiungi prodotto'
     modal.componentInstance.prodotti = JSON.parse(JSON.stringify(prodotto))
     modal.componentInstance.index = prodottoIndex
-    debugger
+
     modal.result.then((x) => {
       //TODO
       this.getProdotti();
     });
   }
 
-  async getProdotti(){
-        this.prodotti = await this.gestioneProdottiService.getProdotti();
-        this.prodotti.forEach((x) => {
-          if (!x.immagineB64.includes('data:image/png;base64,')) {
-            x.immagineB64 = 'data:image/png;base64,' + x.immagineB64;
-          }
-        });
+  async getProdotti() {
+    this.prodotti = await this.gestioneProdottiService.getProdotti();
+    this.prodotti.forEach((x) => {
+      if (!x.immagineB64.includes('data:image/png;base64,')) {
+        x.immagineB64 = 'data:image/png;base64,' + x.immagineB64;
+      }
+    });
   }
 
 
 
   EliminaProdotto(prodotto: prodotti) {
-    this.gestioneProdottiService.removeProdotto(prodotto.id).then(x=>{
+    this.gestioneProdottiService.removeProdotto(prodotto.id).then(x => {
       this.getProdotti();
     });
   }

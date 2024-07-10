@@ -28,7 +28,7 @@ export class ProductModalComponent implements OnInit {
     private coloriService: GestioneColoriService,
     private materialiService: GestioneMaterialiService,
     private prodottiService: GestioneProdottiService
-  ) {}
+  ) { }
 
   faTop = faArrowUp;
   faDown = faArrowDown;
@@ -102,7 +102,7 @@ export class ProductModalComponent implements OnInit {
   async send() {
     console.log(this.prodotti.id != 0 && this.prodotti.id != undefined);
 
-    debugger
+
     if (this.prodotti.id != 0 && this.prodotti.id != undefined) {
       this.updateProdotto();
     } else {
@@ -111,7 +111,7 @@ export class ProductModalComponent implements OnInit {
   }
 
   createProdotto() {
-    var listaImmagini = this.images.map((x : string) => {return { imageB64: x, id:0};})
+    var listaImmagini = this.images.map((x: string) => { return { imageB64: x, id: 0 }; })
     var product = {
       id: 0,
       marchio: this.marchioSelected,
@@ -125,8 +125,8 @@ export class ProductModalComponent implements OnInit {
       info: false,
       listaImmagini: listaImmagini,
     };
-    this.prodottiService.sendProdotto(product).then(x=>{
-      if(x!= null){
+    this.prodottiService.sendProdotto(product).then(x => {
+      if (x != null) {
         this.modalService.openSuccessModal("Prodotto caricato!")
         this.activeModal.close()
       }
@@ -134,28 +134,28 @@ export class ProductModalComponent implements OnInit {
   }
 
   updateProdotto() {
-        var listaImmagini = this.images.map((x: string) => {
-          return { imageB64: x, id: 0 };
-        });
-        var product = {
-          id: this.prodotti.id,
-          marchio: this.marchioSelected,
-          nome: this.prodotti.nome,
-          tipo: this.tipoSelected,
-          materiale: this.materialeSelected,
-          colore: this.coloreSelected,
-          prezzo: this.prodotti.prezzo,
-          descrizione: this.prodotti.descrizione,
-          immagineB64: this.prodotti.immagineB64,
-          info: false,
-          listaImmagini: listaImmagini,
-        };
-        this.prodottiService.editProdotto(product).then((x) => {
-          if (x != null) {
-            this.modalService.openSuccessModal('Prodotto caricato!');
-            this.activeModal.close();
-          }
-        });
+    var listaImmagini = this.images.map((x: string) => {
+      return { imageB64: x, id: 0 };
+    });
+    var product = {
+      id: this.prodotti.id,
+      marchio: this.marchioSelected,
+      nome: this.prodotti.nome,
+      tipo: this.tipoSelected,
+      materiale: this.materialeSelected,
+      colore: this.coloreSelected,
+      prezzo: this.prodotti.prezzo,
+      descrizione: this.prodotti.descrizione,
+      immagineB64: this.prodotti.immagineB64,
+      info: false,
+      listaImmagini: listaImmagini,
+    };
+    this.prodottiService.editProdotto(product).then((x) => {
+      if (x != null) {
+        this.modalService.openSuccessModal('Prodotto caricato!');
+        this.activeModal.close();
+      }
+    });
   }
 
   leggiFileComeBase64(file: any) {
