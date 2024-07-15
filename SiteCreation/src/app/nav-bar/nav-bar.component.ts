@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthServiceService } from '../services/auth-service.service';
+import { Router } from '@angular/router';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { User } from '../model/user.model';
-import { Router } from '@angular/router';
+import { AuthServiceService } from '../services/auth-service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -27,24 +27,24 @@ export class NavBarComponent implements OnInit {
   navigate(value: number) {
     switch (value) {
       case 1:
-        this.router.navigate(['ChiSiamo'])
+        this.router.navigate(['Prodotti'])
         break
       case 2:
-        this.router.navigate(['INostriMarchi'])
+        this.router.navigate(['Marchi'])
         break
       case 3:
-        this.router.navigate(['INostriLavori'])
+        this.router.navigate(['Materiali'])
         break
       case 4:
-        this.router.navigate(['DoveTrovarci'])
+        this.router.navigate(['Colori'])
         break
       case 5:
-        this.router.navigate(['Prodotti'])
+        this.router.navigate(['Tipi'])
         break
       case 6:
         this.router.navigate(['NewsLetter'])
         break
-      case 6:
+      case 7:
         this.router.navigate(['CodiciSconto'])
         break
     }

@@ -36,7 +36,6 @@ export class ProdottiComponent implements OnInit {
     modal.componentInstance.index = prodottoIndex
 
     modal.result.then((x) => {
-      //TODO
       this.getProdotti();
     });
   }
@@ -53,9 +52,11 @@ export class ProdottiComponent implements OnInit {
 
 
   EliminaProdotto(prodotto: prodotti) {
-    this.gestioneProdottiService.removeProdotto(prodotto.id).then(x => {
-      this.getProdotti();
-    });
+    this.modalService.openConfirmModal("Sei sicuro di voler eliminare questo prodotto?").then(x => {
+      this.gestioneProdottiService.removeProdotto(prodotto.id).then(x => {
+        this.getProdotti();
+      });
+    })
   }
 
 }

@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-confirm-modal',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmModalComponent implements OnInit {
 
-  constructor() { }
+  @Input() message: string = "Are you sure that you want to proceed?"
 
+  constructor(public modal: NgbActiveModal) { }
   ngOnInit(): void {
+  }
+
+  confirm() {
+    this.modal.close(true);
+  }
+
+  close() {
+    this.modal.close(false);
   }
 
 }

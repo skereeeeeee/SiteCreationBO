@@ -1,1 +1,14 @@
-<p>confirm-modal works!</p>
+<div class="card">
+    <div class="modal-body text-center align-middle" [innerHTML]="message">
+    </div>
+    <div class="modal-footer ">
+        <div class="d-flex justify-content-end">
+            <button class="btn btn-primary" (click)="confirm()" style="margin-right: 1pc;">
+                Yes
+            </button>
+            <button class="btn btn-danger" (click)="close()">
+                No
+            </button>
+        </div>
+    </div>
+</div>

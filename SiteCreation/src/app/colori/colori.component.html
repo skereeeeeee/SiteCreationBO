@@ -1,1 +1,58 @@
-<p>colori works!</p>
+<app-nav-bar></app-nav-bar>
+
+<div class="p-2 text-center">
+    <h2 style="color: gray;" class="pl-2">
+        Gestione colori
+    </h2>
+    <hr>
+    <div class="row p-4">
+        <div class="col-8 border-end">
+            <div class="pt-3">
+                <table class="table table-bordered border border-black">
+                    <thead class="table-dark ">
+                        <tr>
+                            <th class="w-75">
+                                Nome Colore
+                            </th>
+                            <th>
+                                Azioni
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of coloriFiltered">
+                            <td>
+                                <p class="mt-1" style="font-size: large;">
+                                    {{item.nomE_COLORE}}
+                                </p>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary me-1" (click)="modificaColore(item)">
+                                    <fa-icon [icon]="faEdit"></fa-icon>
+                                </button>
+                                <button class="btn btn-danger me-1" (click)="removeColore(item.iD_COLORE)">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="input-group mt-4 mb-3 ">
+                <input type="text" class="form-control border border-primary" placeholder="Cerca colore"
+                    aria-label="Cerca colore" aria-describedby="button-addon2" [(ngModel)]="coloreDaCercare">
+                <button class="btn btn-primary border border-primary" type="button" id="button-addon2"
+                    (click)="cercaColore()"><fa-icon [icon]="faSearch"></fa-icon></button>
+                <button class="btn btn-danger border border-primary" type="button" id="button-addon2"
+                    (click)="coloreDaCercare = '';cercaColore()"><fa-icon [icon]="faRemove"></fa-icon></button>
+            </div>
+
+            <button class="btn btn-primary " (click)="aggiungiColore()">
+                Aggiungi Colore
+            </button>
+        </div>
+
+
+    </div>

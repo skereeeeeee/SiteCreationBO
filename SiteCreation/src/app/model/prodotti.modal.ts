@@ -13,5 +13,24 @@ export class prodotti {
 
 export class ImagesList {
   imageB64: string = ""
-  id: number|undefined = undefined
+  id: number | undefined = undefined
+}
+
+export class MarchiModel {
+  idMarchio: number = -1;
+  nomeMarchio: string = ""
+}
+
+export class MaterialiModel {
+  iD_MATERIALE: number = -1;
+  nomE_MATERIALE: string = ""
+}
+
+export class ColoriModel {
+  iD_COLORE: number = 0;
+  nomE_COLORE: string = "Bianco"
+}
+export class TipiModel {
+  iD_TIPO: number = 0;
+  tipo: string = ""
 }

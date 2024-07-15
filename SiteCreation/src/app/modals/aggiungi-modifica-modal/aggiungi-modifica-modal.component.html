@@ -1,0 +1,39 @@
+<div class="card">
+    <div class="card-body">
+        <div [ngSwitch]="sezione">
+            <div *ngSwitchCase="'marchi'">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Marchio</label>
+                    <input type="text" class="form-control" aria-describedby="emailHelp" [(ngModel)]="dati.nomeMarchio">
+                </div>
+            </div>
+
+            <div *ngSwitchCase="'materiale'">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Materiale</label>
+                    <input type="text" class="form-control" aria-describedby="emailHelp"
+                        [(ngModel)]="dati.nomE_MATERIALE">
+                </div>
+            </div>
+
+            <div *ngSwitchCase="'colore'">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Colore</label>
+                    <input type="text" class="form-control" aria-describedby="emailHelp" [(ngModel)]="dati.nomE_COLORE">
+                </div>
+            </div>
+
+            <div *ngSwitchCase="'tipo'">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Tipo</label>
+                    <input type="text" class="form-control" aria-describedby="emailHelp" [(ngModel)]="dati.tipo">
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="card-footer">
+        <button class="btn btn-primary ms-2 me-2" (click)="salva()">Salva</button>
+        <button class="btn btn-danger ms-2 me-2" (click)="activeModal.dismiss()">Chiudi</button>
+    </div>
+</div>
