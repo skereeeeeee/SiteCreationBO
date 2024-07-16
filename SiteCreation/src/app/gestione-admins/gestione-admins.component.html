@@ -1,0 +1,74 @@
+<app-nav-bar></app-nav-bar>
+
+<div class="p-2 text-center">
+    <h2 style="color: gray;" class="pl-2">
+        Gestione admin
+    </h2>
+    <hr>
+    <div class="row p-4">
+        <div class="col-8 border-end">
+            <div class="pt-3">
+                <table class="table table-bordered border border-black">
+                    <thead class="table-dark ">
+                        <tr>
+                            <th>
+                                Nome
+                            </th>
+                            <th>
+                                Cognome
+                            </th>
+                            <th>
+                                Email
+                            </th>
+                            <th>
+                                Azioni
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let item of adminFiltered">
+                            <td>
+                                <p class="mt-1" style="font-size: large;">
+                                    {{item.nome}}
+                                </p>
+                            </td>
+                            <td>
+                                <p class="mt-1" style="font-size: large;">
+                                    {{item.cognome}}
+                                </p>
+                            </td>
+                            <td>
+                                <p class="mt-1" style="font-size: large;">
+                                    {{item.email}}
+                                </p>
+                            </td>
+                            <td>
+                                <button class="btn btn-primary me-1" (click)="modificaAdmin(item)">
+                                    <fa-icon [icon]="faEdit"></fa-icon>
+                                </button>
+                                <button class="btn btn-danger me-1" (click)="removeAdmin(item.id)">
+                                    <fa-icon [icon]="faTrash"></fa-icon>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="input-group mt-4 mb-3 ">
+                <input type="text" class="form-control border border-primary" placeholder="Cerca admin"
+                    aria-label="Cerca admin" aria-describedby="button-addon2" [(ngModel)]="adminDaCercare">
+                <button class="btn btn-primary border border-primary" type="button" id="button-addon2"
+                    (click)="cercaAdmin()"><fa-icon [icon]="faSearch"></fa-icon></button>
+                <button class="btn btn-danger border border-primary" type="button" id="button-addon2"
+                    (click)="adminDaCercare = '';cercaAdmin()"><fa-icon [icon]="faRemove"></fa-icon></button>
+            </div>
+
+            <button class="btn btn-primary " (click)="aggiungiAdmin()">
+                Aggiungi Admin
+            </button>
+        </div>
+
+
+    </div>

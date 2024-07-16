@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { faGear } from '@fortawesome/free-solid-svg-icons';
 import { User } from '../model/user.model';
 import { AuthServiceService } from '../services/auth-service.service';
+import { ModalServiceService } from '../services/modal-service.service';
 
 @Component({
   selector: 'app-nav-bar',
@@ -16,7 +17,7 @@ export class NavBarComponent implements OnInit {
 
   user: User | undefined = undefined
 
-  constructor(public auth: AuthServiceService, private router: Router) { }
+  constructor(public auth: AuthServiceService, private router: Router, private modalService: ModalServiceService) { }
 
   ngOnInit(): void {
     if (this.user === undefined) {
@@ -47,7 +48,19 @@ export class NavBarComponent implements OnInit {
       case 7:
         this.router.navigate(['CodiciSconto'])
         break
+      case 8:
+        this.router.navigate(['GestioneAdmins'])
+        break
     }
+  }
+
+  Logout() {
+    this.modalService.openConfirmModal("Sei sicuro di voler fare il logout?").then(x => {
+      if (x) {
+        localStorage.clear()
+        location.reload()
+      }
+    })
   }
 
 }

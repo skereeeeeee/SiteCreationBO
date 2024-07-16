@@ -32,6 +32,8 @@ import { ProdottiComponent } from './prodotti/prodotti.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthServiceService } from './services/auth-service.service';
 import { TipiComponent } from './tipi/tipi.component';
+import { GestioneAdminsComponent } from './gestione-admins/gestione-admins.component';
+import { AddAdminComponent } from './modals/add-admin/add-admin.component';
 
 @NgModule({
   declarations: [
@@ -56,7 +58,9 @@ import { TipiComponent } from './tipi/tipi.component';
     MaterialiComponent,
     ColoriComponent,
     TipiComponent,
-    AggiungiModificaModalComponent
+    AggiungiModificaModalComponent,
+    GestioneAdminsComponent,
+    AddAdminComponent
   ],
   imports: [
     BrowserModule,

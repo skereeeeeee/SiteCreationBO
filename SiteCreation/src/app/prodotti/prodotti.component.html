@@ -5,34 +5,59 @@
         Gestione prodotti
     </h2>
     <button class="btn btn-primary" (click)="aggiungiProdotto()">Aggiungi prodotto</button>
+    <div class="w-100 d-flex justify-content-center">
+        <div class="input-group mt-4 mb-3 w-50">
+            <input type="text" class="form-control border border-primary" placeholder="Cerca prodotto"
+                aria-label="Cerca prodotto" aria-describedby="button-addon2" [(ngModel)]="prodottoDaCercare">
+            <button class="btn btn-primary border border-primary" type="button" id="button-addon2"
+                (click)="cercaProdotto()"><fa-icon [icon]="faSearch"></fa-icon></button>
+            <button class="btn btn-danger border border-primary" type="button" id="button-addon2"
+                (click)="prodottoDaCercare = '';cercaProdotto()"><fa-icon [icon]="faRemove"></fa-icon></button>
+        </div>
+    </div>
+
     <div class="row m-2">
         <div class="col-12 pt-2" *ngFor="let prodotto of prodotti">
             <div class="card">
-                <div class="card-header">
-                    <h3>
-                        {{prodotto.nome}}
-                    </h3>
-                </div>
+
                 <div class="card-body">
                     <div class="row">
-                        <div class="col-2">
-                            <img src="{{prodotto?.immagineB64}}" alt="Card image cap" style="width: 100%; background-color: #DADBDD; border-color: black; border-radius: 6px; border-width: 1px;"/>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
-                            <b>Descrizione:</b> <p class="pb-1 pl-3">{{prodotto.descrizione}}</p> <br>
-                            <b>Marchio:</b> <p class="pt-1 pb-1 pl-3">{{prodotto.marchio}}</p> <br>
-                            <b>Prezzo:</b> <p class="pt-1 pb-1 pl-3">{{prodotto.prezzo|currency:'EUR':true}}</p> <br>
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="row">
 
-                                <b>Materiale:</b> <p class="pt-1 pb-1 pl-3">{{prodotto.materiale}}</p> <br>
-                                <b>Colore:</b> <p class="pt-1 pb-1 pl-3">{{prodotto.colore}}</p> <br>
-                                <b>Tipo:</b> <p class="pt-1 pl-3">{{prodotto.tipo}}</p> <br>
+                        <div class="col-3">
+                            <img src="{{prodotto?.immagineB64}}" alt="Card image cap"
+                                style="width: 100%; background-color: #DADBDD; border-color: black; border-radius: 6px; border-width: 1px;" />
+                        </div>
+                        <div class="col-7">
+                            <div class="row">
+                                <div class="col-12 mb-2">
+                                    <h4>Nome prodotto: <span class="pb-1 ms-3"
+                                            style="font-weight: normal;">{{prodotto.nome}}</span> </h4>
+                                    <hr>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+                                        <b>Descrizione:</b>
+                                        <p class="pb-1 pl-3">{{prodotto.descrizione}}</p> <br>
+                                        <b>Prodotto:</b>
+                                        <p class="pt-1 pb-1 pl-3">{{prodotto.marchio}}</p> <br>
+                                        <b>Prezzo:</b>
+                                        <p class="pt-1 pb-1 pl-3">{{prodotto.prezzo|currency:'EUR':true}}</p> <br>
+                                    </div>
+                                </div>
+                                <div class="col-6">
+                                    <div class="row">
+
+                                        <b>Materiale:</b>
+                                        <p class="pt-1 pb-1 pl-3">{{prodotto.materiale}}</p> <br>
+                                        <b>Colore:</b>
+                                        <p class="pt-1 pb-1 pl-3">{{prodotto.colore}}</p> <br>
+                                        <b>Tipo:</b>
+                                        <p class="pt-1 pl-3">{{prodotto.tipo}}</p> <br>
+                                    </div>
+                                </div>
                             </div>
                         </div>
+
 
                         <div class="col-2">
                             <button class="btn btn-primary" (click)="modificaProdotto(prodotto)">
@@ -46,7 +71,7 @@
                         </div>
                     </div>
                 </div>
-              </div>
+            </div>
         </div>
     </div>
 

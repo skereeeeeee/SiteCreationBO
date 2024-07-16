@@ -1,0 +1,37 @@
+<div class="modal-header">
+    <h4 class="modal-title">{{titolo}}</h4>
+    <button type="button" class="btn-close" aria-label="Close" (click)="activeModal.dismiss()"></button>
+</div>
+<div class="modal-body">
+    <div class="row">
+        <div class="form-group">
+            <label for="Nome">Nome</label>
+            <input type="text" class="form-control" id="Nome" aria-describedby="Nome"
+                [(ngModel)]="Amministratore!.nome">
+        </div>
+        <div class="form-group">
+            <label for="Cognome">Cognome</label>
+            <input type="text" class="form-control" id="Cognome" aria-describedby="Cognome"
+                [(ngModel)]="Amministratore!.cognome">
+        </div>
+        <div class="form-group">
+            <label for="Email">Email</label>
+            <input type="text" class="form-control" id="Email" aria-describedby="Email"
+                [(ngModel)]="Amministratore!.email">
+        </div>
+        <div class="form-group">
+            <label for="Password">Password</label>
+            <input type="password" class="form-control" id="Password" aria-describedby="Password"
+                [(ngModel)]="password">
+        </div>
+
+
+
+
+    </div>
+</div>
+<div class="modal-footer">
+
+    <button type="button" class="btn btn-success" (click)="send()">Conferma</button>
+    <button type="button" class="btn btn-outline-dark" (click)="activeModal.close(false)">chiudi</button>
+</div>

@@ -6,28 +6,13 @@
   <div class="row p-4 d-flex justify-content-center">
     <div class="w-50">
       <div class="input-group mt-4 mb-3">
-        <input
-          type="text"
-          class="form-control border border-primary"
-          placeholder="Cerca marchio"
-          aria-label="Cerca marchio"
-          aria-describedby="button-addon2"
-          [(ngModel)]="emailDaCercare"
-        />
-        <button
-          class="btn btn-primary border border-primary"
-          type="button"
-          id="button-addon2"
-          (click)="cercaEmail()"
-        >
+        <input type="text" class="form-control border border-primary" placeholder="Cerca mail" aria-label="Cerca mail"
+          aria-describedby="button-addon2" [(ngModel)]="emailDaCercare" />
+        <button class="btn btn-primary border border-primary" type="button" id="button-addon2" (click)="cercaEmail()">
           <fa-icon [icon]="faSearch"></fa-icon>
         </button>
-        <button
-          class="btn btn-danger border border-primary"
-          type="button"
-          id="button-addon2"
-          (click)="emailDaCercare = ''; cercaEmail()"
-        >
+        <button class="btn btn-danger border border-primary" type="button" id="button-addon2"
+          (click)="emailDaCercare = ''; cercaEmail()">
           <fa-icon [icon]="faRemove"></fa-icon>
         </button>
       </div>
@@ -56,18 +41,10 @@
               </td>
               <td>
                 <p class="mt-1" style="font-size: large">
-                  <button
-                    *ngIf="item.codice_sconto_usato"
-                    class="btn btn-success"
-                    disabled
-                  >
+                  <button *ngIf="item.codice_sconto_usato" class="btn btn-success" disabled>
                     Codice sconto utilizzato
                   </button>
-                  <button
-                    *ngIf="!item.codice_sconto_usato"
-                    class="btn btn-danger"
-                    (click)="codiceScontoUtilizzato()"
-                  >
+                  <button *ngIf="!item.codice_sconto_usato" class="btn btn-danger" (click)="codiceScontoUtilizzato()">
                     Codice sconto non utilizzato
                   </button>
                 </p>

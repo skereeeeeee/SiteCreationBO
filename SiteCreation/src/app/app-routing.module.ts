@@ -1,17 +1,15 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './login/login.component';
-import { HomepageComponent } from './homepage/homepage.component';
-import { AuthGuardService  as AuthGuard} from './services/auth-guard.service';
-import { ChiSiamoComponent } from './chi-siamo.component';
-import { INostriMarchiComponent } from './inostri-marchi/inostri-marchi.component';
-import { DoveTrovarciComponent } from './dove-trovarci/dove-trovarci.component';
-import { ProdottiComponent } from './prodotti/prodotti.component';
-import { NewsLetterComponent } from './news-letter/news-letter.component';
 import { CodiciScontoComponent } from './codici-sconto/codici-sconto.component';
+import { ColoriComponent } from './colori/colori.component';
+import { GestioneAdminsComponent } from './gestione-admins/gestione-admins.component';
+import { HomepageComponent } from './homepage/homepage.component';
+import { LoginComponent } from './login/login.component';
 import { MarchiComponent } from './marchi/marchi.component';
 import { MaterialiComponent } from './materiali/materiali.component';
-import { ColoriComponent } from './colori/colori.component';
+import { NewsLetterComponent } from './news-letter/news-letter.component';
+import { ProdottiComponent } from './prodotti/prodotti.component';
+import { AuthGuardService as AuthGuard } from './services/auth-guard.service';
 import { TipiComponent } from './tipi/tipi.component';
 
 const routes: Routes = [
@@ -54,6 +52,11 @@ const routes: Routes = [
   {
     path: 'CodiciSconto',
     component: CodiciScontoComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'GestioneAdmins',
+    component: GestioneAdminsComponent,
     canActivate: [AuthGuard],
   },
   { path: '', redirectTo: 'Login', pathMatch: 'full' },

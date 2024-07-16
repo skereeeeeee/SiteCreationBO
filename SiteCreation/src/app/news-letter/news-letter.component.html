@@ -7,11 +7,8 @@
     Utenti iscritti
   </button>
 
-  <div
-    class="animazione mt-3 d-flex justify-content-center"
-    style="max-height: 200px; overflow: auto"
-    *ngIf="vediUtenti"
-  >
+  <div class="animazione mt-3 d-flex justify-content-center" style="max-height: 200px; overflow: auto"
+    *ngIf="vediUtenti">
     <ul class="list-group w-50">
       <li class="list-group-item" *ngFor="let item of newsLetter">
         {{ item }}
@@ -26,21 +23,13 @@
         <div class="card-body">
           <div class="form-group m-2">
             <label for="subject" class="mt-2 mb-2">Oggetto</label>
-            <input
-              type="text"
-              class="form-control"
-              id="subject"
-              placeholder="Inserisci l'oggetto"
-            />
+            <input type="text" class="form-control" id="subject" placeholder="Inserisci l'oggetto" [(ngModel)]="subject"
+              [ngModelOptions]="{standalone: true}" />
           </div>
           <div class="form-group m-2">
             <label for="message" class="mt-2 mb-2">Messaggio</label>
-            <ckeditor
-              style="min-height: 200px"
-              [editor]="Editor"
-              [(ngModel)]="messaggio"
-              [ngModelOptions]="{ standalone: true }"
-            ></ckeditor>
+            <ckeditor style="min-height: 200px" [editor]="Editor" [(ngModel)]="messaggio"
+              [ngModelOptions]="{ standalone: true }"></ckeditor>
           </div>
         </div>
         <div class="card-footer">

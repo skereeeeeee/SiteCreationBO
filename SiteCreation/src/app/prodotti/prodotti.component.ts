@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { faEraser, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { ProductModalComponent } from '../modals/product-modal/product-modal.component';
 import { prodotti } from '../model/prodotti.modal';
@@ -12,9 +13,15 @@ import { ModalServiceService } from '../services/modal-service.service';
 })
 export class ProdottiComponent implements OnInit {
 
+  faRemove = faEraser
+  faSearch = faMagnifyingGlass
+
+  prodottoDaCercare: string = ""
+
   constructor(public modal: NgbModal, private gestioneProdottiService: GestioneProdottiService, private modalService: ModalServiceService) { }
 
   public prodotti: Array<prodotti> = []
+  public allProdotti: Array<prodotti> = []
 
   async ngOnInit(): Promise<void> {
     this.getProdotti();
@@ -39,9 +46,9 @@ export class ProdottiComponent implements OnInit {
       this.getProdotti();
     });
   }
-
   async getProdotti() {
     this.prodotti = await this.gestioneProdottiService.getProdotti();
+    this.allProdotti = JSON.parse(JSON.stringify(this.prodotti))
     this.prodotti.forEach((x) => {
       if (!x.immagineB64.includes('data:image/png;base64,')) {
         x.immagineB64 = 'data:image/png;base64,' + x.immagineB64;
@@ -57,6 +64,22 @@ export class ProdottiComponent implements OnInit {
         this.getProdotti();
       });
     })
+  }
+
+  cercaProdotto() {
+    if (this.prodottoDaCercare == "") {
+      this.prodotti = JSON.parse(JSON.stringify(this.allProdotti))
+    } else {
+      this.prodotti = this.allProdotti.filter(x =>
+        x.colore.toLowerCase().includes(this.prodottoDaCercare.toLowerCase()) ||
+        x.descrizione.toLowerCase().includes(this.prodottoDaCercare.toLowerCase()) ||
+        x.marchio.toLowerCase().includes(this.prodottoDaCercare.toLowerCase()) ||
+        x.materiale.toLowerCase().includes(this.prodottoDaCercare.toLowerCase()) ||
+        x.materiale.toLowerCase().includes(this.prodottoDaCercare.toLowerCase()) ||
+        x.nome.toLowerCase().includes(this.prodottoDaCercare.toLowerCase()) ||
+        x.tipo.toLowerCase().includes(this.prodottoDaCercare.toLowerCase())
+      )
+    }
   }
 
 }
