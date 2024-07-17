@@ -13,12 +13,14 @@ import { ChiSiamoComponent } from './chi-siamo.component';
 import { CodiciScontoComponent } from './codici-sconto/codici-sconto.component';
 import { ColoriComponent } from './colori/colori.component';
 import { DoveTrovarciComponent } from './dove-trovarci/dove-trovarci.component';
+import { GestioneAdminsComponent } from './gestione-admins/gestione-admins.component';
 import { HomepageComponent } from './homepage/homepage.component';
 import { INostriLavoriComponent } from './inostri-lavori/inostri-lavori.component';
 import { INostriMarchiComponent } from './inostri-marchi/inostri-marchi.component';
 import { LoginComponent } from './login/login.component';
 import { MarchiComponent } from './marchi/marchi.component';
 import { MaterialiComponent } from './materiali/materiali.component';
+import { AddAdminComponent } from './modals/add-admin/add-admin.component';
 import { AggiungiModificaModalComponent } from './modals/aggiungi-modifica-modal/aggiungi-modifica-modal.component';
 import { ConfirmModalComponent } from './modals/confirm-modal/confirm-modal.component';
 import { ErrorModalComponent } from './modals/error-modal/error-modal.component';
@@ -32,8 +34,6 @@ import { ProdottiComponent } from './prodotti/prodotti.component';
 import { AuthGuardService } from './services/auth-guard.service';
 import { AuthServiceService } from './services/auth-service.service';
 import { TipiComponent } from './tipi/tipi.component';
-import { GestioneAdminsComponent } from './gestione-admins/gestione-admins.component';
-import { AddAdminComponent } from './modals/add-admin/add-admin.component';
 
 @NgModule({
   declarations: [

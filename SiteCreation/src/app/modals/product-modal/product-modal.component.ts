@@ -2,11 +2,10 @@ import { Component, Input, OnInit } from '@angular/core';
 import {
   faArrowDown,
   faArrowUp,
-  faCross,
-  faRemove,
+  faRemove
 } from '@fortawesome/free-solid-svg-icons';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
-import { ImagesList, prodotti } from 'src/app/model/prodotti.modal';
+import { prodotti } from 'src/app/model/prodotti.modal';
 import { GestioneColoriService } from 'src/app/services/gestione-colori.service';
 import { GestioneMarchiService } from 'src/app/services/gestione-marchi.service';
 import { GestioneMaterialiService } from 'src/app/services/gestione-materiali.service';
@@ -93,7 +92,7 @@ export class ProductModalComponent implements OnInit {
     console.log(this.materialeSelected);
 
     this.images = this.prodotti.listaImmagini?.map((x) =>
-      x.imageB64.includes('data:image/png;base64,')
+      x.imageB64.includes('base64,')
         ? x.imageB64
         : 'data:image/png;base64,' + x.imageB64
     );

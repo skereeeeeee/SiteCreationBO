@@ -4,6 +4,7 @@ import { CodiciScontoComponent } from './codici-sconto/codici-sconto.component';
 import { ColoriComponent } from './colori/colori.component';
 import { GestioneAdminsComponent } from './gestione-admins/gestione-admins.component';
 import { HomepageComponent } from './homepage/homepage.component';
+import { INostriMarchiComponent } from './inostri-marchi/inostri-marchi.component';
 import { LoginComponent } from './login/login.component';
 import { MarchiComponent } from './marchi/marchi.component';
 import { MaterialiComponent } from './materiali/materiali.component';
@@ -60,6 +61,11 @@ const routes: Routes = [
     canActivate: [AuthGuard],
   },
   { path: '', redirectTo: 'Login', pathMatch: 'full' },
+
+  {
+    path: "Test",
+    component: INostriMarchiComponent
+  },
   { path: '**', redirectTo: 'Login' },
 ];
 

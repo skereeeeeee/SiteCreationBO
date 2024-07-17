@@ -50,7 +50,7 @@ export class ProdottiComponent implements OnInit {
     this.prodotti = await this.gestioneProdottiService.getProdotti();
     this.allProdotti = JSON.parse(JSON.stringify(this.prodotti))
     this.prodotti.forEach((x) => {
-      if (!x.immagineB64.includes('data:image/png;base64,')) {
+      if (!x.immagineB64.includes('base64,')) {
         x.immagineB64 = 'data:image/png;base64,' + x.immagineB64;
       }
     });
